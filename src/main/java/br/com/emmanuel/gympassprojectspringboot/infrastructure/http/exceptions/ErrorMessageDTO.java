@@ -1,4 +1,4 @@
-package br.com.emmanuel.gympassprojectspringboot.exceptions;
+package br.com.emmanuel.gympassprojectspringboot.infrastructure.http.exceptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

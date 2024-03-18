@@ -1,4 +1,4 @@
-package br.com.emmanuel.gympassprojectspringboot.exceptions;
+package br.com.emmanuel.gympassprojectspringboot.infrastructure.http.exceptions;
 
 import java.util.ArrayList;
 import java.util.List;
