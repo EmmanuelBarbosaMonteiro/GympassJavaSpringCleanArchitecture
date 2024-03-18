@@ -1,5 +1,9 @@
 package br.com.emmanuel.gympassprojectspringboot.infrastructure.database.gateways;
 
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import br.com.emmanuel.gympassprojectspringboot.domain.application.repositories.CustomerRepository;
 import br.com.emmanuel.gympassprojectspringboot.domain.entities.Customer;
 import br.com.emmanuel.gympassprojectspringboot.infrastructure.database.entities.CustomerEntity;
@@ -14,6 +18,13 @@ public class CustomerRepositoryGateway implements CustomerRepository {
   public CustomerRepositoryGateway(JpaCustomerRepository jpaCustomerRepository, CustomerEntityMapper customerEntityMapper) {
     this.jpaCustomerRepository = jpaCustomerRepository;
     this.customerEntityMapper = customerEntityMapper;
+  }
+
+  @Override
+  public Optional<Customer> findByEmail(String email) {
+    Optional<CustomerEntity> customerEntityOptional = jpaCustomerRepository.findByEmail(email);
+    
+    return customerEntityOptional.map(customerEntityMapper::toDomainObj);
   }
 
   @Override
